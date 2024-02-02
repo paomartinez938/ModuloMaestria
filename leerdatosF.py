@@ -1,7 +1,7 @@
 import sqlite3
 
-def leerdatos():
-  conn = sqlite3.connect("pv_model.db")
+def leer_datos():
+  conn = sqlite3.connect("pycharm.db")
   cursor = conn.cursor()
 
   cursor.execute('SELECT * FROM pycharm LIMIT 10;')
@@ -15,4 +15,4 @@ def leerdatos():
   conn.close()
 
 if __name__ == '__main__':
-    leerdatos()
+    leer_datos()
