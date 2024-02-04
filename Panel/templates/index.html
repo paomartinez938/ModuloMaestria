@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Paneles</title>
+</head>
+<body>
+
+    <h1>Calculadora de Paneles Fotovoltaico</h1>
+
+    <form>
+        <label for="temperatura">Temperatura:</label>
+        <input type="text" id="temperatura" name="input1" placeholder="valor numérico">
+
+        <br><br>
+
+        <label for="irradiancia">Irradiancia:</label>
+        <input type="text" id="irradiancia" name="input2" placeholder="valor numérico">
+
+        <br><br>
+
+        <button type="button" onclick="calcular()">Calcular</button>
+        <br> <br>
+
+        <label for="label1">Voltaje maxima:</label>
+        <label id="label1"></label>
+
+        <br>
+
+        <label for="label2">Potencia maxima:</label>
+        <label id="label2"></label>
+
+        <br>
+
+        <label for="label3">Corriente maxima:</label>
+        <label id="label3"></label>
+
+        <br>
+    </form>
+
+    <script>
+        function calcular() {
+        var temperatura = document.getElementById('temperatura').value;
+        var irradiancia = document.getElementById('irradiancia').value;
+
+        fetch(`/calculate?temperatura=${temperatura}&irradiancia=${irradiancia}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('label1').innerText = data.Vmpp.toFixed(2);
+                document.getElementById('label2').innerText = data.P_max.toFixed(2);
+                document.getElementById('label3').innerText = data.Impp.toFixed(2);
+                console.log(data + "check data")
+            });
+    }
+    </script>
+
+</body>
+</html>
