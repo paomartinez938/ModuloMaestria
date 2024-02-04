@@ -39,3 +39,6 @@ python app.py
 
 4. The UI will be updated to display the calculated maximum voltage, maximum power, and maximum.
 
+This is an example of what you'll see in your browser
+<img src="Panel/CalculadoraPanelFotovoltaico.jpg" alt="Ejemplo" title="Imagen Calculadora">
+
